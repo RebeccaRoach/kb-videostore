@@ -6,6 +6,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import Nav from './components/Nav.js'
 import Home from './components/Home.js'
 import Customers from './components/Customers.js'
 import Library from './components/Library.js'
@@ -16,10 +17,13 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Route path='/' exact component={Home} />
-        <Route path='/library' component={Library} />
-        <Route path='/search' component={Search} />
-        <Route path='/customers' component={Customers} />
+        <Nav />
+        <Switch>
+          <Route path='/' exact component={Home} />
+          <Route path='/library' component={Library} />
+          <Route path='/search' component={Search} />
+          <Route path='/customers' component={Customers} />
+        </Switch>
       </div>
     </Router>
   );
