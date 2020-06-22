@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 // import './App.css';
 import {Link} from 'react-router-dom'
+import {SessionContext} from '../App'
 
 function Nav() {
 
@@ -8,6 +9,8 @@ function Nav() {
     color: 'white',
     textDecoration: 'none'
   }
+
+  const session = useContext(SessionContext);
 
   return (
     <nav>
@@ -28,6 +31,8 @@ function Nav() {
           <li>Customers</li>
         </Link>
       </ul>
+
+      <h1>{session.selectedCustomer && session.selectedCustomer.name}</h1>
     </nav>
   );
 }
