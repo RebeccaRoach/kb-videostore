@@ -11,9 +11,6 @@ const Search = () => {
     e.preventDefault();
 
     if (searchFieldQuery !== "" && searchFieldQuery !== undefined && searchFieldQuery !== null) {
-      // const url = "https://api.themoviedb.org/3/search/movie"
-      // const apiKey = "50842a094f1c20954b593a156adc4fdc"
-      //await axios.get(`${url}?api_key=${apiKey}&query=${searchFieldQuery}`)
       await axios.get(`http://localhost:4000/movies?query=${searchFieldQuery}`)
         .then((response) => {
           setResult(response.data);
