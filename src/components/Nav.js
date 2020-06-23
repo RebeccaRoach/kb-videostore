@@ -33,6 +33,7 @@ function Nav() {
       </ul>
 
       <h1>{session.selectedCustomer && session.selectedCustomer.name}</h1>
+      <h1>{session.selectedMovie && session.selectedMovie.title}</h1>
     </nav>
   );
 }
