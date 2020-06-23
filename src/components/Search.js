@@ -1,69 +1,45 @@
-import React, { useState, useEffect }  from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
-const Search = (props) => {
+const Search = () => {
 
-  // let base_url = "http://localhost:4000/movies"
-  // const [search, setSearch] = useState(undefined);
+  const [searchFieldQuery, setSearchFieldQuery] = useState("");
 
-  // useEffect(() => {
-  //   axios.get("http://localhost:4000/movies", {
-  //     params: {
-  //       query: 'Shrek'
-  //     }
-  //   })
-  //   .then((response) => {
-  //     setSearch(response.data);
-  //     console.log(response.data);
-  //   })
-  //   .catch(()=> {
-  //     alert("Requested moview was not found")
-  //   })
+  const [result, setResult] = useState([]);
 
-  // },[])
+  const handleSearch = async (e) => {
+    e.preventDefault();
 
-  // return (
-  //   <div className="App">
-  //     <p>Here is the search page!</p>
-  //     <p>{search.title}</p>
-  //   </div>
-  // );
-
-  const [searchField, setSearchField] = useState({
-    title: ''
-  });
-
-  const onSearchChange = (event) => {
-    setSearchField({
-      title: event.target.value
-    });
-  };
-
-
-  const onFormSubmit = (event) => {
-    event.preventDefault();
-
-    props.searchCallback(searchField);
-
-    setSearchField({
-      title: ''
-    });
+    if (searchFieldQuery !== "" && searchFieldQuery !== undefined && searchFieldQuery !== null) {
+      // const url = "https://api.themoviedb.org/3/search/movie"
+      // const apiKey = "50842a094f1c20954b593a156adc4fdc"
+      //await axios.get(`${url}?api_key=${apiKey}&query=${searchFieldQuery}`)
+      await axios.get(`http://localhost:4000/movies?query=${searchFieldQuery}`)
+        .then((response) => {
+          setResult(response.data);
+        })
+        .catch(() => {
+          alert("Requested movie was not found")
+        })
+    }
   }
 
   return (
-    <form className="search-form" onSubmit={onFormSubmit}>
+    <div>
+      <input
+        name="search"
+        onChange={(e) => setSearchFieldQuery(e.target.value)}
+        value={searchFieldQuery}
+      />
+
+      <button onClick={handleSearch}>
+        Search
+      </button>
+
       <div>
-        <label htmlFor="search">Search for title:</label>
-        <input 
-          name="search" 
-          onChange={onSearchChange} 
-          value={searchField.title}
-        />
+        {result.map(d => <p>{d.title}</p>)}
       </div>
-
-
-      <input type="submit" value="Go" />
-    </form>
+    </div>
   );
 }
 
