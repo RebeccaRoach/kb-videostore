@@ -20,6 +20,9 @@ function App() {
   const [selectedCustomer, setSelectedCustomer] = useState(undefined);
   const [selectedMovie, setSelectedMovie] = useState(undefined);
 
+
+  
+
   return (
     <SessionContext.Provider value={{
       selectedCustomer,
@@ -32,7 +35,7 @@ function App() {
           <Switch>
             <Route path='/' exact component={Home} />
             <Route path='/library' component={Library} />
-            <Route path='/search' component={Search} />
+            <Route path='/search' component={Search} searchCallback={}/>
             <Route path='/customers' component={Customers} />
           </Switch>
         </div>
