@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import {Link} from 'react-router-dom'
 import {SessionContext} from '../App'
 
-function Nav() {
+const Nav = () => {
 
   const navStyle = {
     color: 'white',
