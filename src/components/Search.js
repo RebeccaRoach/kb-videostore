@@ -54,18 +54,17 @@ const Search = () => {
       <div className="movie-cards-container">
         {result.map(movieData =>
           <div>
-            <div class="card" style={movieStyle}>
-              <img src={movieData.image_url} class="card-img-top" alt="movie cover image"></img>
-              <div class="card-body">
-                <h5 class="card-title">{movieData.title}</h5>
-                <p class="card-text">{movieData.overview}</p>
+            <div class="card promoting-card card-style">
+              <div class="card-body d-flex flex-row">
+                <div>
+                  <div class="view overlay">
+                    <img src={movieData.image_url} class="card-img-top" alt="movie cover image"></img>
+                  </div>
+                  <h4 class="card-title font-weight-bold mb-2">{movieData.title}</h4>
+                  <p class="card-text">Release: {movieData.release_date}</p>
+                </div>
               </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">Release Date: {movieData.release_date}</li>
-              </ul>
-              <div class="card-body">
-                <button className="add-btn" onClick={() => addMovie(movieData)}>Add to Library</button>
-              </div>
+              <button className="add-btn" onClick={() => addMovie(movieData)}>Add to Library</button>
             </div>
           </div>
         )}
