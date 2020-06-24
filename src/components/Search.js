@@ -16,7 +16,6 @@ const Search = () => {
       animationOut: ["animated", "fadeOut"],
       dismiss: {
         duration: 2000,
-       
       }
 
     });
@@ -44,7 +43,6 @@ const Search = () => {
   const addMovie = (movieData) => {
     axios.post('http://localhost:4000/movies', movieData)
       .then((response) => {
-        console.log(response);
         notificationMessage();
       })
       .catch(() => {

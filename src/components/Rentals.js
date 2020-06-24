@@ -1,12 +1,29 @@
 import React, { useState, useEffect, useContext }  from 'react';
 import axios from 'axios';
 import { SessionContext } from "../App";
+import { store } from 'react-notifications-component';
 
 function Rentals() {
 
   const [rental, setRental] = useState(undefined);
   const sessionContext = useContext(SessionContext);
 
+  const notificationMessage = () => {
+    store.addNotification({
+      title: "Success!",
+      message: "Rental has been created!",
+      type: "success",
+      insert: "top",
+      container: "top-right",
+      animationIn: ["animated", "fadeIn"],
+      animationOut: ["animated", "fadeOut"],
+      dismiss: {
+        duration: 2000,
+       
+      }
+
+    });
+  }
 
   // useEffect(() => {
   //   axios.get('http://localhost:4000/movies')
@@ -33,7 +50,7 @@ function Rentals() {
         due_date: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)
       })
         .then((response) => {
-          console.log(response)
+          notificationMessage();
         })
         .catch((error) => {
           console.error("error is: ", error);
