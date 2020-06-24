@@ -1,7 +1,26 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+import { store } from 'react-notifications-component';
+
 const Search = () => {
+
+  const notificationMessage = () => {
+    store.addNotification({
+      title: "Success!",
+      message: "Selected movie has been added to your library",
+      type: "success",
+      insert: "top",
+      container: "top-right",
+      animationIn: ["animated", "fadeIn"],
+      animationOut: ["animated", "fadeOut"],
+      dismiss: {
+        duration: 2000,
+       
+      }
+
+    });
+  }
 
   const [searchFieldQuery, setSearchFieldQuery] = useState("");
 
@@ -26,8 +45,11 @@ const Search = () => {
     axios.post('http://localhost:4000/movies', movieData)
       .then((response) => {
         console.log(response);
+        notificationMessage();
       })
-      .catch()
+      .catch(() => {
+        alert("Requested movie was not added to library")
+      })
   }
 
   const movieStyle = {

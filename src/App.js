@@ -12,6 +12,10 @@ import Customers from './components/Customers.js'
 import Library from './components/Library.js'
 import Search from './components/Search.js'
 
+import ReactNotification from 'react-notifications-component';
+import 'react-notifications-component/dist/theme.css';
+import { store } from 'react-notifications-component';
+
 // we can consume the context anywhere if we export it like so:
 export const SessionContext = React.createContext();
 
@@ -29,6 +33,7 @@ const App = () => {
     }}>
       <Router>
         <div className="App">
+          <ReactNotification />
           <Nav />
           <Switch>
             <Route path='/' exact component={Home} />
