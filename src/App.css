@@ -2,20 +2,131 @@
   text-align: center;
 }
 
-nav {
+header {
+  position: relative;
+  background-color: black;
+  height: 75vh;
+  min-height: 25rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+header video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+header .container {
+  position: relative;
+  z-index: 2;
+}
+
+header .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+@media (pointer: coarse) and (hover: none) {
+  header {
+    background: url('https://source.unsplash.com/XT5OInaElMw/1600x900') black no-repeat center center scroll;
+  }
+  header video {
+    display: none;
+  }
+}
+
+.nav-style {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  min-height: 10vh;
-  background:darkslategray;
+  min-height: 18vh;
+  background:	#182828;
   color: white;
 }
-.nav-links {
-  width: 40%;
+
+.navbar-brand {
+  color: white;
+}
+
+.nav-ul {
+  width: 60%;
   display: flex;
   justify-content: space-around;
   align-items: center;
   list-style: none;
-  color: white;
-  
 }
+
+.nav-links {  
+  list-style: none;
+  color: white;
+}
+
+/* FOOTER STYLES */
+
+.footer{
+  background: #152F4F;
+  color:white;
+  max-height: 200px;
+}
+
+/* SEARCH STYLES */
+
+.search-input {
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  min-width: 250px;
+}
+
+.search-button {
+  display: block;
+  margin: 0px auto;
+  width: 80px;
+  height: 40px;
+  text-align: center;
+  color: rgba(255,255,255,0.9);
+  border-radius: 20px;
+  background: linear-gradient(-45deg, #FFA63D, #FF3D77, #338AFF, #3CF0C5);
+  background-size: 250%;
+  /* animation: anime 16s linear infinite; */
+}
+
+.add-btn {
+  /* TODO: MORE STYLES HERE TO BE CONSISTENT WITH OTHER SELECT BUTTON APPEARANCES */
+  color: #182828;
+}
+
+.movie-cards-container {
+  margin: 0px auto;
+  display: flex;
+  max-width: 90%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* FOR ACCORDIAN IN CARDS */
+/* <div id="accordion">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Collapsible Group Item #1
+        </button>
+      </h5>
+    </div> */

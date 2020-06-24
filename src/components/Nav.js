@@ -5,35 +5,34 @@ import {SessionContext} from '../App'
 
 const Nav = () => {
 
-  const navStyle = {
-    color: 'white',
-    textDecoration: 'none'
-  }
-
   const session = useContext(SessionContext);
 
   return (
-    <nav>
-      <ul className="nav-links">
-        <Link style={navStyle} to='/'>
-          <li>Home</li>
+    <nav className="nav-style">
+      <ul className="nav-ul">
+        <Link to='/'>
+          <li className="navbar-brand">KB Videos</li>
         </Link>
 
-       <Link style={navStyle} to='/search'>
-          <li>Search</li>
+        <Link to='/'>
+          <li className="nav-links">Home</li>
         </Link>
 
-        <Link style={navStyle} to='/library'>
-          <li>Library</li>
+       <Link to='/search'>
+          <li className="nav-links">Search</li>
+        </Link>
+
+        <Link to='/library'>
+          <li className="nav-links">Library</li>
         </Link>
       
-        <Link style={navStyle} to='/customers'>
-          <li>Customers</li>
+        <Link to='/customers'>
+          <li className="nav-links">Customers</li>
         </Link>
       </ul>
 
-      <h1>{session.selectedCustomer && session.selectedCustomer.name}</h1>
-      <h1>{session.selectedMovie && session.selectedMovie.title}</h1>
+      <h5>{session.selectedCustomer && session.selectedCustomer.name}</h5>
+      <h5>{session.selectedMovie && session.selectedMovie.title}</h5>
     </nav>
   );
 }
