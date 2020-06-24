@@ -15,19 +15,18 @@ import Search from './components/Search.js'
 // we can consume the context anywhere if we export it like so:
 export const SessionContext = React.createContext();
 
-function App() {
+const App = () => {
 
   const [selectedCustomer, setSelectedCustomer] = useState(undefined);
   const [selectedMovie, setSelectedMovie] = useState(undefined);
-
-
 
   return (
     <SessionContext.Provider value={{
       selectedCustomer,
       selectedMovie,
       setSelectedCustomer,
-      setSelectedMovie}}>
+      setSelectedMovie
+    }}>
       <Router>
         <div className="App">
           <Nav />
