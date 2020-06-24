@@ -11,6 +11,7 @@ import Home from './components/Home.js'
 import Customers from './components/Customers.js'
 import Library from './components/Library.js'
 import Search from './components/Search.js'
+import Rentals from './components/Rentals.js'
 
 // we can consume the context anywhere if we export it like so:
 export const SessionContext = React.createContext();
@@ -35,6 +36,7 @@ const App = () => {
             <Route path='/library' component={Library} />
             <Route path='/search' component={Search} />
             <Route path='/customers' component={Customers} />
+            <Route path='/rentals' component={Rentals} />
           </Switch>
         </div>
       </Router>
