@@ -22,7 +22,6 @@ function App() {
 
 
 
-
   return (
     <SessionContext.Provider value={{
       selectedCustomer,

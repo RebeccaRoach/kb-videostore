@@ -21,6 +21,14 @@ const Search = () => {
     }
   }
 
+  const addMovie = (movieData) => {
+    axios.post('http://localhost:4000/movies', movieData)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch()
+  }
+
   return (
     <div>
       <input
@@ -34,7 +42,12 @@ const Search = () => {
       </button>
 
       <div>
-        {result.map(d => <p>{d.title}</p>)}
+        {result.map(movieData => 
+          <div>
+            <p>{movieData.title}</p>
+            <button onClick={() => addMovie(movieData)}>Add to Library</button>
+          </div>
+        )}
       </div>
     </div>
   );
