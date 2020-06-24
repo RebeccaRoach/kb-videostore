@@ -21,6 +21,22 @@ const Search = () => {
     });
   }
 
+  const errorNotificationMessage = () => {
+    store.addNotification({
+      title: "Warning!",
+      message: "Selected movie was already added to your library",
+      type: "warning",
+      insert: "top",
+      container: "top-right",
+      animationIn: ["animated", "fadeIn"],
+      animationOut: ["animated", "fadeOut"],
+      dismiss: {
+        duration: 2000,
+      }
+
+    });
+  }
+
   const [searchFieldQuery, setSearchFieldQuery] = useState("");
 
   const [result, setResult] = useState([]);
@@ -43,10 +59,13 @@ const Search = () => {
   const addMovie = (movieData) => {
     axios.post('http://localhost:4000/movies', movieData)
       .then((response) => {
+        console.log("response is: ", response);
         notificationMessage();
       })
-      .catch(() => {
-        alert("Requested movie was not added to library")
+      .catch((error) => {
+        console.log("error is: ", error);
+        errorNotificationMessage();
+        // alert("Requested movie was not added to library")
       })
   }
 
