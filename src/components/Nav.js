@@ -29,6 +29,10 @@ const Nav = () => {
         <Link to='/customers'>
           <li className="nav-links">Customers</li>
         </Link>
+
+        <Link to='/rentals'>
+          <li className="nav-links">Rentals</li>
+        </Link>
       </ul>
 
       <h5>{session.selectedCustomer && session.selectedCustomer.name}</h5>
