@@ -8,7 +8,7 @@ function Rentals() {
   const [rental, setRental] = useState(undefined);
   const sessionContext = useContext(SessionContext);
 
-  const notificationMessage = () => {
+  const rentalSuccessMessage = () => {
     store.addNotification({
       title: "Success!",
       message: "Rental has been created!",
@@ -25,10 +25,44 @@ function Rentals() {
     });
   }
 
-  const errorNotificationMessage = () => {
+  const rentalErrorMessage = () => {
     store.addNotification({
       title: "Warning",
       message: "Could not create a rental. Not enough inventory.",
+      type: "warning",
+      insert: "top",
+      container: "top-right",
+      animationIn: ["animated", "fadeIn"],
+      animationOut: ["animated", "fadeOut"],
+      dismiss: {
+        duration: 2000,
+       
+      }
+
+    });
+  }
+
+  const returnSuccessMessage = () => {
+    store.addNotification({
+      title: "Success!",
+      message: "Rental has been returned! Thank you!",
+      type: "success",
+      insert: "top",
+      container: "top-right",
+      animationIn: ["animated", "fadeIn"],
+      animationOut: ["animated", "fadeOut"],
+      dismiss: {
+        duration: 2000,
+       
+      }
+
+    });
+  }
+
+  const returnErrorMessage = () => {
+    store.addNotification({
+      title: "Warning",
+      message: "Oh no! Could not return the movie for some reason!",
       type: "warning",
       insert: "top",
       container: "top-right",
@@ -56,11 +90,11 @@ function Rentals() {
         due_date: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)
       })
         .then((response) => {
-          notificationMessage();
+          rentalSuccessMessage();
         })
         .catch((error) => {
           console.error("error is: ", error);
-          errorNotificationMessage();
+          rentalErrorMessage();
         })
     }
   }
@@ -77,11 +111,10 @@ function Rentals() {
         customer_id: customer.id,
       })
         .then((response) => {
-          alert("Successfully returned movie!");
+          returnSuccessMessage();
         })
         .catch((error) => {
-          console.error("error is: ", error);
-          alert("Count not return movie for some reason...?");
+          returnErrorMessage();
         })
     }
   }
