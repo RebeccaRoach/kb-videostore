@@ -43,7 +43,7 @@ function Customers() {
                   {customer.movies_checked_out_count}
                 </td>
                 <td>
-                <button onClick={()=> sessionContext.setSelectedCustomer(customer)} className= "btn btn-secondary">Select</button>
+                <button onClick={()=> sessionContext.setSelectedCustomer(customer)} className="add-btn">Select</button>
                 </td>
               </tr>
             )

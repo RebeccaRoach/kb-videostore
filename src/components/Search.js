@@ -81,7 +81,7 @@ const Search = () => {
       />
 
       <button
-        className="search-button"
+        className="pizazz-btn"
         onClick={handleSearch}
       >
         Search

@@ -101,11 +101,11 @@ header .overlay {
   min-width: 275px;
 }
 
-.search-button {
+.pizazz-btn {
   display: block;
   margin: 0px auto;
   margin-bottom: 20px;
-  width: 80px;
+  /* width: 80px; */
   height: 40px;
   text-align: center;
   color: rgba(255,255,255,0.9);
@@ -114,7 +114,7 @@ header .overlay {
   background-size: 250%;
 }
 
-.search-button:hover {
+.pizazz-btn:hover {
   box-shadow: 5px 5px #C0C0C0;
   border: 0.5px solid #182828;
 }
@@ -132,7 +132,6 @@ header .overlay {
   width: 130px;
   text-align: center;
   color: #182828;
-  background-color:#80C49D;
   border-radius: 5px;
   text-shadow: 0 1px 0 rgba(0,0,0,0.15);
   background: linear-gradient(-45deg,#94e1a0, #94e1b0, #94e1c0, #94e1d0);

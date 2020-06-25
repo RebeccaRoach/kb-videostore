@@ -129,10 +129,10 @@ function Rentals() {
       <p>Selected Customer: <strong>{sessionContext.selectedCustomer === undefined ? "no customer selected" : sessionContext.selectedCustomer.name}</strong></p>
      
       <div className="rental-buttons-container">
-        <button onClick={() => rentMovie()} className="btn btn-secondary">
+        <button onClick={() => rentMovie()} className="pizazz-btn">
           Rent a Movie
         </button>
-        <button onClick={() => returnMovie()} className="btn btn-secondary">
+        <button onClick={() => returnMovie()} className="pizazz-btn">
           Return a Movie
         </button>
       </div>
