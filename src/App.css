@@ -89,15 +89,15 @@ header .overlay {
 
 .search-input {
   margin: auto;
-  margin-top: 50px;
+  margin-top: 10px;
   margin-bottom: 20px;
-  min-width: 250px;
+  min-width: 275px;
 }
 
 .search-button {
   display: block;
   margin: 0px auto;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   width: 80px;
   height: 40px;
   text-align: center;
@@ -107,7 +107,12 @@ header .overlay {
   background-size: 250%;
 }
 
-.library-title {
+.search-button:hover {
+  box-shadow: 5px 5px #C0C0C0;
+  border: 0.5px solid #182828;
+}
+
+.page-title {
   margin: 20px auto;
   margin-bottom: 30px;
 }
@@ -166,14 +171,3 @@ header .overlay {
 .collapse-content .fa.fa-share-alt:hover {
   color: #0d47a1 !important;
 }
-
-/* FOR ACCORDIAN IN CARDS */
-/* <div id="accordion">
-  <div class="card">
-    <div class="card-header" id="headingOne">
-      <h5 class="mb-0">
-        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Collapsible Group Item #1
-        </button>
-      </h5>
-    </div> */
