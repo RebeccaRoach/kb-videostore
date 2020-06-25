@@ -71,6 +71,7 @@ const Search = () => {
 
   return (
     <div>
+      <h4 className="page-title">Search for a video to add to Library</h4>
       <input
         className="search-input"
         placeholder="Enter a movie title"
@@ -90,7 +91,11 @@ const Search = () => {
         {result.map(movieData =>
           <div>
             <div class="card promoting-card card-style">
-              <div class="card-body d-flex flex-row">
+              <div class="card-body d-flex flex-row"
+                data-toggle="tooltip"
+                data-placement="bottom"
+                title={movieData.overview}
+              >
                 <div>
                   <div class="view overlay">
                     <img src={movieData.image_url} class="movie-img" alt="movie cover image"></img>

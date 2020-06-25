@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext }  from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { SessionContext } from "../App";
 
@@ -12,28 +12,32 @@ const Library = () => {
       .then((response) => {
         setLibrary(response.data);
       })
-      .catch(()=> {
+      .catch(() => {
         alert("Failed to fetch movies")
       })
-  },[])
+  }, [])
 
   return (
     <div>
-      <h3 className="library-title">KB Videos Library</h3>
+      <h4 className="page-title">KB Videos Library</h4>
       <div className="movie-cards-container">
         {library.map(movie =>
           <div>
-            <div class="card promoting-card card-style">
-              <div class="card-body d-flex flex-row">
+            <div className="card promoting-card card-style">
+              <div className="card-body d-flex flex-row"
+                data-toggle="tooltip"
+                data-placement="bottom"
+                title={movie.overview}
+              >
                 <div>
-                  <div class="view overlay">
-                    <img src={movie.image_url} class="movie-img" alt="movie cover image"></img>
+                  <div className="view overlay">
+                    <img src={movie.image_url} className="movie-img" alt="movie cover image"></img>
                   </div>
-                  <h4 class="card-title font-weight-bold mb-2">{movie.title}</h4>
-                  <p class="card-text">Release: {movie.release_date}</p>
+                  <h4 className="card-title font-weight-bold mb-2">{movie.title}</h4>
+                  <p className="card-text">Release: {movie.release_date}</p>
                 </div>
               </div>
-              <button className="add-btn" onClick={()=> sessionContext.setSelectedMovie(movie)}>Select</button>
+              <button className="add-btn" onClick={() => sessionContext.setSelectedMovie(movie)}>Select</button>
             </div>
           </div>
         )}
