@@ -120,18 +120,22 @@ function Rentals() {
   }
 
   return (
-    <div className="App">
-      <p>RENTALS!</p>
-      <ul>
-        <li>Selected Movie: {sessionContext.selectedMovie === undefined ? "no movie selected" : sessionContext.selectedMovie.title}</li>
-        <li>Selected Customer: {sessionContext.selectedCustomer === undefined ? "no customer selected" : sessionContext.selectedCustomer.name}</li>
-      </ul>
-      <button onClick={() => rentMovie()}>
-        Rent a Movie
-      </button>
-      <button onClick={() => returnMovie()}>
-        Return a Movie
-      </button>
+    <div className="jumbotron">
+      <h1 class="display-3">RENTALS</h1>
+      <p class="lead">Select a customenr and a movie then do a checkout-out or check-in</p>
+      <hr class="my-2"></hr>
+      
+      <p>Selected Movie: <strong>{sessionContext.selectedMovie === undefined ? "no movie selected" : sessionContext.selectedMovie.title}</strong></p>
+      <p>Selected Customer: <strong>{sessionContext.selectedCustomer === undefined ? "no customer selected" : sessionContext.selectedCustomer.name}</strong></p>
+     
+      <div className="rental-buttons-container">
+        <button onClick={() => rentMovie()} className="btn btn-secondary">
+          Rent a Movie
+        </button>
+        <button onClick={() => returnMovie()} className="btn btn-secondary">
+          Return a Movie
+        </button>
+      </div>
     </div>
   );
 }
