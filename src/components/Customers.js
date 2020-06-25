@@ -20,20 +20,38 @@ function Customers() {
 
   return (
     <div className="App">
-      <p>Here are customers!</p>
-      <ul>
-        {customers.map((customer) => {
-          return (
-            <li>
-              <span>
-                {customer.name}
-              </span>
-              <button onClick={()=> sessionContext.setSelectedCustomer(customer)}>Select</button>
-            </li>
-          )
-        }
-        )}
-      </ul>
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Movies checked out</th>
+            <th>Select a Customer</th>
+          </tr>
+        </thead>
+        <tbody>
+          {customers.map((customer) => {
+            return (
+              <tr>
+                <td>
+                  {customer.id}
+                </td>
+                <td>
+                  {customer.name}
+                </td>
+                <td>
+                  {customer.movies_checked_out_count}
+                </td>
+                <td>
+                <button onClick={()=> sessionContext.setSelectedCustomer(customer)} className= "btn btn-secondary">Select</button>
+                </td>
+              </tr>
+            )
+          }
+          )}
+
+        </tbody>
+      </table>
     </div>
   );
 }
