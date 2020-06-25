@@ -15,9 +15,8 @@ const Search = () => {
       animationIn: ["animated", "fadeIn"],
       animationOut: ["animated", "fadeOut"],
       dismiss: {
-        duration: 2000,
+        duration: 1500,
       }
-
     });
   }
 
@@ -31,9 +30,8 @@ const Search = () => {
       animationIn: ["animated", "fadeIn"],
       animationOut: ["animated", "fadeOut"],
       dismiss: {
-        duration: 2000,
+        duration: 1500,
       }
-
     });
   }
 
@@ -59,13 +57,10 @@ const Search = () => {
   const addMovie = (movieData) => {
     axios.post('http://localhost:4000/movies', movieData)
       .then((response) => {
-        console.log("response is: ", response);
         notificationMessage();
       })
       .catch((error) => {
-        console.log("error is: ", error);
         errorNotificationMessage();
-        // alert("Requested movie was not added to library")
       })
   }
 
@@ -82,12 +77,7 @@ const Search = () => {
         value={searchFieldQuery}
       />
 
-      <button
-        className="pizazz-btn"
-        onClick={handleSearch}
-      >
-        Search
-      </button>
+      <button className="pizazz-btn" onClick={handleSearch}>Search</button>
 
       <div className="movie-cards-container">
         {result.map(movieData =>

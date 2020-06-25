@@ -3,8 +3,7 @@ import './App.css';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import Nav from './components/Nav.js'
 import Home from './components/Home.js'
@@ -12,12 +11,10 @@ import Customers from './components/Customers.js'
 import Library from './components/Library.js'
 import Search from './components/Search.js'
 import Rentals from './components/Rentals.js'
-
 import ReactNotification from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
-import { store } from 'react-notifications-component';
 
-// we can consume the context anywhere if we export it like so:
+// so we can consume the context anywhere:
 export const SessionContext = React.createContext();
 
 const App = () => {

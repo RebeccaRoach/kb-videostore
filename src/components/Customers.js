@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import {SessionContext} from "../App"
 
-function Customers() {
+const Customers = () => {
 
   const [customers, setCustomers] = useState([]);
   const sessionContext = useContext(SessionContext)
@@ -13,15 +13,14 @@ function Customers() {
         setCustomers(response.data);
       })
       .catch(()=> {
-        alert("Failed to fectch customers")
+        alert("Failed to fectch customers");
       })
-      // pass in vars as props to empty array => e.g. props.id
   }, [])
 
   return (
     <div className="App">
-      <table class="table">
-        <thead class="thead-light">
+      <table className="table">
+        <thead className="thead-light">
           <tr>
             <th>ID</th>
             <th>Name</th>
