@@ -51,7 +51,7 @@ function Rentals() {
       console.log("customer=", customer);
       console.log("customer.id=", customer.id);
 
-      axios.post(`http://localhost:4000//rentals/${movie.title}/check-out`, {
+      axios.post(`http://localhost:4000/rentals/${movie.title}/check-out`, {
         customer_id: customer.id,
         due_date: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)
       })
@@ -65,6 +65,27 @@ function Rentals() {
     }
   }
 
+  const returnMovie = () => {
+    if (sessionContext.selectedMovie !== undefined && sessionContext.selectedCustomer !== undefined) {
+      const movie = sessionContext.selectedMovie;
+      const customer = sessionContext.selectedCustomer;
+      console.log("Movie=", movie);
+      console.log("customer=", customer);
+      console.log("customer.id=", customer.id);
+
+      axios.post(`http://localhost:4000/rentals/${movie.title}/return`, {
+        customer_id: customer.id,
+      })
+        .then((response) => {
+          alert("Successfully returned movie!");
+        })
+        .catch((error) => {
+          console.error("error is: ", error);
+          alert("Count not return movie for some reason...?");
+        })
+    }
+  }
+
   return (
     <div className="App">
       <p>RENTALS!</p>
@@ -74,6 +95,9 @@ function Rentals() {
       </ul>
       <button onClick={() => rentMovie()}>
         Rent a Movie
+      </button>
+      <button onClick={() => returnMovie()}>
+        Return a Movie
       </button>
     </div>
   );
