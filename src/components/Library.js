@@ -18,8 +18,10 @@ const Library = () => {
   }, [])
 
   return (
-    <div>
-      <h4 className="page-title">KB Videos Library</h4>
+    <div className="jumbotron">
+      <h1 class="display-3">LIBRARY</h1>
+      <p class="lead">KB Videos Library</p>
+      <hr class="my-2"></hr>
       <div className="movie-cards-container">
         {library.map(movie =>
           <div>

@@ -122,7 +122,7 @@ function Rentals() {
   return (
     <div className="jumbotron">
       <h1 class="display-3">RENTALS</h1>
-      <p class="lead">Select a customenr and a movie then do a checkout-out or check-in</p>
+      <p class="lead">Select a customer and a movie then do a checkout-out or check-in</p>
       <hr class="my-2"></hr>
       
       <p>Selected Movie: <strong>{sessionContext.selectedMovie === undefined ? "no movie selected" : sessionContext.selectedMovie.title}</strong></p>

@@ -70,8 +70,10 @@ const Search = () => {
   }
 
   return (
-    <div>
-      <h4 className="page-title">Search for a video to add to Library</h4>
+    <div className="jumbotron">
+      <h1 className="display-3">SEARCH</h1>
+      <p className="lead">Find a video to add to Library</p>
+      <hr class="my-2"></hr>
       <input
         className="search-input"
         placeholder="Enter a movie title"

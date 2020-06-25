@@ -87,7 +87,7 @@ header .overlay {
 /* FOOTER STYLES */
 
 .footer{
-  background: #152F4F;
+  background: black;
   color:white;
   max-height: 200px;
 }
@@ -105,7 +105,6 @@ header .overlay {
   display: block;
   margin: 0px auto;
   margin-bottom: 20px;
-  /* width: 80px; */
   height: 40px;
   text-align: center;
   color: rgba(255,255,255,0.9);
@@ -116,12 +115,7 @@ header .overlay {
 
 .pizazz-btn:hover {
   box-shadow: 5px 5px #C0C0C0;
-  border: 0.5px solid #182828;
-}
-
-.page-title {
-  margin: 20px auto;
-  margin-bottom: 30px;
+  border: 0.5px solid black;
 }
 
 .add-btn {
@@ -131,7 +125,7 @@ header .overlay {
   height: 40px;
   width: 130px;
   text-align: center;
-  color: #182828;
+  color: black;
   border-radius: 5px;
   text-shadow: 0 1px 0 rgba(0,0,0,0.15);
   background: linear-gradient(-45deg,#94e1a0, #94e1b0, #94e1c0, #94e1d0);
@@ -155,7 +149,7 @@ header .overlay {
 
 .movie-img {
   max-width: 110%;
-  border: 5px solid #182828;
+  border: 5px solid black;
   border-radius: 5px;
   padding: 10px;
   box-shadow: 5px 10px #C0C0C0;
