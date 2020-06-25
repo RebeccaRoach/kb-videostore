@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext }  from 'react';
+import React, { useState, useContext }  from 'react';
 import axios from 'axios';
 import { SessionContext } from "../App";
 import { store } from 'react-notifications-component';
@@ -18,10 +18,8 @@ function Rentals() {
       animationIn: ["animated", "fadeIn"],
       animationOut: ["animated", "fadeOut"],
       dismiss: {
-        duration: 2000,
-       
+        duration: 1500,
       }
-
     });
   }
 
@@ -35,10 +33,8 @@ function Rentals() {
       animationIn: ["animated", "fadeIn"],
       animationOut: ["animated", "fadeOut"],
       dismiss: {
-        duration: 2000,
-       
+        duration: 1500,
       }
-
     });
   }
 
@@ -52,10 +48,8 @@ function Rentals() {
       animationIn: ["animated", "fadeIn"],
       animationOut: ["animated", "fadeOut"],
       dismiss: {
-        duration: 2000,
-       
+        duration: 1500,
       }
-
     });
   }
 
@@ -69,31 +63,28 @@ function Rentals() {
       animationIn: ["animated", "fadeIn"],
       animationOut: ["animated", "fadeOut"],
       dismiss: {
-        duration: 2000,
-       
+        duration: 1500,
       }
-
     });
   }
-
 
   const rentMovie = () => {
     if (sessionContext.selectedMovie !== undefined && sessionContext.selectedCustomer !== undefined) {
       const movie = sessionContext.selectedMovie;
       const customer = sessionContext.selectedCustomer;
-      console.log("Movie=", movie);
-      console.log("customer=", customer);
-      console.log("customer.id=", customer.id);
 
       axios.post(`http://localhost:4000/rentals/${movie.title}/check-out`, {
         customer_id: customer.id,
+        // sets due date to be one week from time of rental
         due_date: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)
       })
         .then((response) => {
           rentalSuccessMessage();
+          // clear sessionContext after rental made
+          sessionContext.setSelectedCustomer(undefined);
+          sessionContext.setSelectedMovie(undefined);
         })
         .catch((error) => {
-          console.error("error is: ", error);
           rentalErrorMessage();
         })
     }
@@ -103,17 +94,17 @@ function Rentals() {
     if (sessionContext.selectedMovie !== undefined && sessionContext.selectedCustomer !== undefined) {
       const movie = sessionContext.selectedMovie;
       const customer = sessionContext.selectedCustomer;
-      console.log("Movie=", movie);
-      console.log("customer=", customer);
-      console.log("customer.id=", customer.id);
 
       axios.post(`http://localhost:4000/rentals/${movie.title}/return`, {
         customer_id: customer.id,
       })
-        .then((response) => {
+        .then(() => {
           returnSuccessMessage();
+          // clear sessionContext after rental returned
+          sessionContext.setSelectedCustomer(undefined);
+          sessionContext.setSelectedMovie(undefined);
         })
-        .catch((error) => {
+        .catch(() => {
           returnErrorMessage();
         })
     }
