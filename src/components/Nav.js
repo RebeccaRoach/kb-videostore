@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-// import './App.css';
 import {Link} from 'react-router-dom'
 import {SessionContext} from '../App'
 
@@ -35,8 +34,8 @@ const Nav = () => {
         </Link>
       </ul>
 
-      <h5>{session.selectedCustomer && session.selectedCustomer.name}</h5>
-      <h5>{session.selectedMovie && session.selectedMovie.title}</h5>
+      <h4 className="selected-context">{session.selectedCustomer && session.selectedCustomer.name}</h4>
+      <h4 className="selected-context">{session.selectedMovie && session.selectedMovie.title}</h4>
     </nav>
   );
 }

@@ -77,6 +77,17 @@ header .overlay {
   color: white;
 }
 
+.nav-links:hover {  
+  text-decoration: none;
+  color:#94e1e0;
+  font-size: 1.2em;
+}
+
+/* CURRENT CUSTOMER AND MOVIE IN CONTEXT */
+.selected-context {
+  color: #94e1e0;
+}
+
 .rental-buttons-container {
   width: 100%;
   display: flex;
@@ -163,11 +174,4 @@ header .overlay {
 
 .card-title {
   margin: 12px;
-}
-
-.collapse-content .fa.fa-heart:hover {
-  color: #f44336 !important;
-}
-.collapse-content .fa.fa-share-alt:hover {
-  color: #0d47a1 !important;
 }
