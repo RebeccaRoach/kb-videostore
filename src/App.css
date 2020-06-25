@@ -97,6 +97,7 @@ header .overlay {
 .search-button {
   display: block;
   margin: 0px auto;
+  margin-bottom: 25px;
   width: 80px;
   height: 40px;
   text-align: center;
@@ -104,24 +105,54 @@ header .overlay {
   border-radius: 20px;
   background: linear-gradient(-45deg, #FFA63D, #FF3D77, #338AFF, #3CF0C5);
   background-size: 250%;
-  /* animation: anime 16s linear infinite; */
 }
 
 .add-btn {
-  /* TODO: MORE STYLES HERE TO BE CONSISTENT WITH OTHER SELECT BUTTON APPEARANCES */
+  display: block;
+  margin: 0px auto;
+  margin-bottom: 25px;
+  height: 40px;
+  width: 130px;
+  text-align: center;
   color: #182828;
+  background-color:#80C49D;
+  border-radius: 5px;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.15);
+  background: linear-gradient(-45deg,#94e1a0, #94e1b0, #94e1c0, #94e1d0);
+  background-size: 200%;
+}
+
+.add-btn:hover {
+  color: white;
+  font-size:1.1em;
+  box-shadow: 5px 5px #C0C0C0;
 }
 
 .movie-cards-container {
   margin: 0px auto;
+  margin-bottom: 25px;
   display: flex;
-  max-width: 90%;
+  max-width: 80%;
   justify-content: space-between;
   flex-wrap: wrap;
 }
 
+.movie-img {
+  max-width: 110%;
+  border: 5px solid #182828;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 5px 10px #C0C0C0;
+}
+
 .card-style {
-  width: 15rem;
+  width: 18rem;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.card-title {
+  margin: 12px;
 }
 
 .collapse-content .fa.fa-heart:hover {

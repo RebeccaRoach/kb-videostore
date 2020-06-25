@@ -69,10 +69,6 @@ const Search = () => {
       })
   }
 
-  const movieStyle = {
-    width: "18rem"
-  }
-
   return (
     <div>
       <input
@@ -97,7 +93,7 @@ const Search = () => {
               <div class="card-body d-flex flex-row">
                 <div>
                   <div class="view overlay">
-                    <img src={movieData.image_url} class="card-img-top" alt="movie cover image"></img>
+                    <img src={movieData.image_url} class="movie-img" alt="movie cover image"></img>
                   </div>
                   <h4 class="card-title font-weight-bold mb-2">{movieData.title}</h4>
                   <p class="card-text">Release: {movieData.release_date}</p>
