@@ -25,15 +25,23 @@ function Rentals() {
     });
   }
 
-  // useEffect(() => {
-  //   axios.get('http://localhost:4000/movies')
-  //     .then((response) => {
-  //       setLibrary(response.data);
-  //     })
-  //     .catch(()=> {
-  //       alert("Failed to fetch movies")
-  //     })
-  // },[])
+  const errorNotificationMessage = () => {
+    store.addNotification({
+      title: "Warning",
+      message: "Could not create a rental. Not enough inventory.",
+      type: "warning",
+      insert: "top",
+      container: "top-right",
+      animationIn: ["animated", "fadeIn"],
+      animationOut: ["animated", "fadeOut"],
+      dismiss: {
+        duration: 2000,
+       
+      }
+
+    });
+  }
+
 
   const rentMovie = () => {
     if (sessionContext.selectedMovie !== undefined && sessionContext.selectedCustomer !== undefined) {
@@ -42,8 +50,6 @@ function Rentals() {
       console.log("Movie=", movie);
       console.log("customer=", customer);
       console.log("customer.id=", customer.id);
-
-      // console.log("INSIDE METHOD!!!")
 
       axios.post(`http://localhost:4000//rentals/${movie.title}/check-out`, {
         customer_id: customer.id,
@@ -54,7 +60,7 @@ function Rentals() {
         })
         .catch((error) => {
           console.error("error is: ", error);
-          alert("Failed to create a rental")
+          errorNotificationMessage();
         })
     }
   }
