@@ -72,7 +72,7 @@ function Rentals() {
       const movie = sessionContext.selectedMovie;
       const customer = sessionContext.selectedCustomer;
 
-      axios.post(`http://localhost:4000/rentals/${movie.title}/check-out`, {
+      axios.post(`${process.env.API_BASE_URL}rentals/${movie.title}/check-out`, {
         customer_id: customer.id,
         // sets due date to be one week from time of rental
         due_date: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)
@@ -94,7 +94,7 @@ function Rentals() {
       const movie = sessionContext.selectedMovie;
       const customer = sessionContext.selectedCustomer;
 
-      axios.post(`http://localhost:4000/rentals/${movie.title}/return`, {
+      axios.post(`${process.env.API_BASE_URL}rentals/${movie.title}/return`, {
         customer_id: customer.id,
       })
         .then(() => {

@@ -43,7 +43,7 @@ const Search = () => {
     e.preventDefault();
 
     if (searchFieldQuery !== "" && searchFieldQuery !== undefined && searchFieldQuery !== null) {
-      await axios.get(`http://localhost:4000/movies?query=${searchFieldQuery}`)
+      await axios.get(`${process.env.API_BASE_URL}movies?query=${searchFieldQuery}`)
         .then((response) => {
           setResult(response.data);
         })
@@ -55,7 +55,7 @@ const Search = () => {
   }
 
   const addMovie = (movieData) => {
-    axios.post('http://localhost:4000/movies', movieData)
+    axios.post(`${process.env.API_BASE_URL}movies`, movieData)
       .then((response) => {
         notificationMessage();
       })

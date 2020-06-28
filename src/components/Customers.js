@@ -8,7 +8,7 @@ const Customers = () => {
   const sessionContext = useContext(SessionContext)
 
   useEffect(() => {
-    axios.get('http://localhost:4000/customers')
+    axios.get(`${process.env.API_BASE_URL}customers`)
       .then((response) => {
         setCustomers(response.data);
       })

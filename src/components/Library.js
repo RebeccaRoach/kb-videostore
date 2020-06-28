@@ -10,7 +10,7 @@ const Library = () => {
   const [searchFieldQuery, setSearchFieldQuery] = useState("");
 
   useEffect(() => {
-    axios.get('http://localhost:4000/movies')
+    axios.get(`${process.env.API_BASE_URL}movies`)
       .then((response) => {
         setLibrary(response.data);
       })
