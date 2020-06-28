@@ -7,6 +7,8 @@ const Library = () => {
   const [library, setLibrary] = useState([]);
   const sessionContext = useContext(SessionContext);
 
+  const [searchFieldQuery, setSearchFieldQuery] = useState("");
+
   useEffect(() => {
     axios.get('http://localhost:4000/movies')
       .then((response) => {
@@ -17,13 +19,26 @@ const Library = () => {
       })
   }, [])
 
+  // Filter library if a user has input any search parameters
+  const results = searchFieldQuery ?
+    library.filter(movie => movie.title.toLowerCase().includes(searchFieldQuery.toLowerCase())) :
+    library
+
   return (
     <div className="jumbotron">
       <h1 class="display-3">LIBRARY</h1>
       <p class="lead">KB Videos Library</p>
+
+      <input
+        className="search-input"
+        placeholder="Enter a movie title"
+        name="search"
+        onChange={(e) => setSearchFieldQuery(e.target.value)}
+      />
+
       <hr class="my-2"></hr>
       <div className="movie-cards-container">
-        {library.map(movie =>
+        {results.map(movie =>
           <div>
             <div className="card promoting-card card-style">
               <div className="card-body d-flex flex-row"

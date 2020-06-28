@@ -1,11 +1,10 @@
-import React, { useState, useContext }  from 'react';
+import React, { useContext }  from 'react';
 import axios from 'axios';
 import { SessionContext } from "../App";
 import { store } from 'react-notifications-component';
 
 function Rentals() {
 
-  const [rental, setRental] = useState(undefined);
   const sessionContext = useContext(SessionContext);
 
   const rentalSuccessMessage = () => {
